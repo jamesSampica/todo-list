@@ -1,4 +1,9 @@
-﻿<nav>
-    <FluentNavLink Href="/" Match="NavLinkMatch.All" IconColor="Color.Accent">Home</FluentNavLink>
-    <FluentNavLink Href="/todos" Match="NavLinkMatch.All" IconColor="Color.Accent">To Do</FluentNavLink>
+﻿@* To get access to all Fluent UI System icons, install the Microsoft.FluentUI.AspNetCore.Compoents.Icon package *@
+@* See all the diffeent ways on how to use icons at https://www.fluentui-blazor.net/Icon *@
+
+<nav>
+    <FluentNavMenu Width="250">
+        <FluentNavLink Href="/" Match="NavLinkMatch.All">Home</FluentNavLink>
+        <FluentNavLink Href="/todos" Match="NavLinkMatch.All">To Do List</FluentNavLink>
+    </FluentNavMenu>
 </nav>
