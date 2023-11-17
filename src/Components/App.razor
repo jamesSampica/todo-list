@@ -5,14 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
-    <link rel="stylesheet" href="app.css" />
-    <link rel="stylesheet" href="TodoList.styles.css" />
-    <script src="_content/Microsoft.FluentUI.AspNetCore.Components/js/web-components-v2.5.16.min.js" type="module" async></script>
-    <script src="_framework/blazor.web.js"></script>
     <HeadOutlet />
+    <script src="https://unpkg.com/htmx.org@1.9.8"></script>
 </head>
 
-<body>
+<body hx-boost="true">
     <Routes />
 </body>
 
