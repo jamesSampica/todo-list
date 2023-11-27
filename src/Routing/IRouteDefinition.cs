@@ -2,5 +2,5 @@
 
 public interface IRouteDefinition
 {
-	void Map(WebApplication app);
+	void MapRoutes(WebApplication app);
 }

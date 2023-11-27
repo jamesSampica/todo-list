@@ -13,7 +13,7 @@ public static class WebApplicationExtensions
 
 		foreach (var endpointDef in endpointDefinitions)
 		{
-			endpointDef.Map(app);
+			endpointDef.MapRoutes(app);
 		}
 	}
 }
