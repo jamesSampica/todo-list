@@ -1,15 +1,18 @@
 ﻿
+using Microsoft.AspNetCore.Http.HttpResults;
+using TodoList.Components.Pages;
+
 namespace TodoList;
 
 public class HomePageRoute : IRouteDefinition
 {
     public void MapRoutes(WebApplication app)
     {
-        app.MapGet("/", Index);
+        app.MapGet("/", HomePage);
     }
 
-    public IResult Index()
+    public IResult HomePage()
     {
-        return Page<HomePage>();
+        return new RazorComponentResult<HomePage>();
     }
 }
