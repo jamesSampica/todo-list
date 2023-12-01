@@ -1,5 +1,5 @@
 using TodoList;
-using TodoList.Components;
+using TodoList.Components.Layout;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +23,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>();
+app.MapRazorComponents<MainLayout>();
 
 app.Run();
