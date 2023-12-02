@@ -1,2 +1,3 @@
 # todo-list
-A TODO List App using Blazor and HTMX
+
+A TODO List App using Blazor SSR and HTMX
