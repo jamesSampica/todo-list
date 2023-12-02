@@ -1,1 +1,21 @@
 @layout ComponentLayout
+
+<table class="table">
+    @foreach (var todo in _todos)
+    {
+        <tr>
+            <td>@todo.Summary</td>
+        </tr>
+    }
+</table>
+
+@code
+{
+    List<TodoItem> _todos = [];
+    protected override void OnInitialized()
+    {
+        _todos = TodosRepository.Todos;
+
+        base.OnInitialized();
+    }
+}
