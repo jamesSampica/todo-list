@@ -14,7 +14,12 @@
 </head>
 
 <body hx-boost="true">
-    <Routes />
+    <Router AppAssembly="@typeof(Program).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(Layout.PageLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+    </Router>
 </body>
 
 </html>
