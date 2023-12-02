@@ -1,5 +1,4 @@
-using TodoList;
-using TodoList.Components.Layout;
+using TodoList.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents();
 
 var app = builder.Build();
-
-app.RegisterRoutes();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -23,6 +20,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<MainLayout>();
+app.MapRazorComponents<App>();
 
 app.Run();

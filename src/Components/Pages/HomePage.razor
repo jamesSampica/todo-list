@@ -1,8 +1,14 @@
-﻿@layout Components.Layout.MainLayout
-
+﻿@page "/"
 
 <PageTitle>Home</PageTitle>
 
  <h1>Welcome to my To Do App</h1>
 
  <a href="/todos">What do I need to do?</a>
+
+ @code{
+    protected override void OnInitialized()
+    {
+        System.Diagnostics.Trace.WriteLine("test");
+    }
+}
