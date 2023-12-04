@@ -1,11 +1,14 @@
 @page "/todos/add"
 
-<PageTitle>Add ToDo</PageTitle>
+<PageTitle>Add a todo</PageTitle>
 
-<h1>Add Something to do</h1>
+<h1>Add a todo</h1>
 
-<form method="post">
+<form hx-post="">
+    <AntiforgeryToken />
     <div class="form-group">
-        
+        <label for="summary">Summary</label>
+        <input type="text" class="form-control" id="summary" />
     </div>
+    <button class="btn btn-primary">Save</button>
 </form>
