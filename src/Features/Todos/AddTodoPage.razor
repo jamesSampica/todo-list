@@ -4,11 +4,28 @@
 
 <h1>Add a todo</h1>
 
-<form hx-post="">
-    <AntiforgeryToken />
-    <div class="form-group">
+<EditForm method="post" Model="Form" OnValidSubmit="CreateTodo" FormName="test">
+    <DataAnnotationsValidator />
+    <div class="mb-2">
         <label for="summary">Summary</label>
-        <input type="text" class="form-control" id="summary" />
+        <input type="text" class="form-control" @bind-value="Form.Summary" />
+        <ValidationMessage For="() => Form.Summary" />
     </div>
     <button class="btn btn-primary">Save</button>
-</form>
+</EditForm>
+
+@code {
+    [SupplyParameterFromForm]
+    public ViewModel Form { get; set; } = new();
+
+    private void CreateTodo()
+    {
+        
+    }
+
+    public class ViewModel()
+    {
+
+        public string Summary { get; set; }
+    }
+}
