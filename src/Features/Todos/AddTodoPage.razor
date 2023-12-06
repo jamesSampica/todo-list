@@ -17,9 +17,13 @@
 @code {
     [SupplyParameterFromForm]
     public TodoItem TodoItem { get; set; } = new(){Summary = "Vacuum"};
+    
+    [Inject]
+	public NavigationManager Nav { get; set; }
 
-    private void CreateTodo()
-    {
-        
-    }
+	public void CreateTodo()
+	{
+		TodosRepository.Todos.Add(TodoItem);
+		Nav.NavigateTo("/todos");
+	}
 }
