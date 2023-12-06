@@ -2,7 +2,8 @@ namespace TodoList.Features.Todos;
 
 public static class TodosRepository
 {
-    public static List<TodoItem> Todos { get; } = [new("Dishes"), new("Laundry")];
+    public static List<TodoItem> Todos { get; } = [new(){Summary = "Dishes" },
+                                                   new(){Summary = "Laundry" }];
 }
 
-public record TodoItem(string Summary);
+public class TodoItem { public string? Summary { get; set; } }

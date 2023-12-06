@@ -4,28 +4,22 @@
 
 <h1>Add a todo</h1>
 
-<EditForm method="post" Model="Form" OnValidSubmit="CreateTodo" FormName="test">
+<EditForm method="post" Model="TodoItem" OnValidSubmit="CreateTodo" FormName="create-todo">
     <DataAnnotationsValidator />
     <div class="mb-2">
         <label for="summary">Summary</label>
-        <input type="text" class="form-control" @bind-value="Form.Summary" />
-        <ValidationMessage For="() => Form.Summary" />
+        <InputText id="summary" @bind-Value="TodoItem.Summary" class="form-control" />
+        <ValidationMessage For="() => TodoItem.Summary" />
     </div>
     <button class="btn btn-primary">Save</button>
 </EditForm>
 
 @code {
     [SupplyParameterFromForm]
-    public ViewModel Form { get; set; } = new();
+    public TodoItem TodoItem { get; set; } = new(){Summary = "Vacuum"};
 
     private void CreateTodo()
     {
         
-    }
-
-    public class ViewModel()
-    {
-
-        public string Summary { get; set; }
     }
 }
