@@ -19,7 +19,7 @@
     public TodoItem TodoItem { get; set; } = new(){Summary = "Vacuum"};
     
     [Inject]
-	public NavigationManager Nav { get; set; }
+	public NavigationManager Nav { get; set; } = null!;
 
 	public void CreateTodo()
 	{
