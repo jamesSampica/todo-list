@@ -1,4 +1,5 @@
 using TodoList.Features.Shared;
+using TodoList.Routing;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents();
 
 var app = builder.Build();
+
+app.RegisterAppRoutes();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
