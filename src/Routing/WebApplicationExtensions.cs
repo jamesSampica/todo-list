@@ -1,7 +1,7 @@
 
 namespace TodoList.Routing;
 
-public static class RegisterRoutesExtension
+public static class WebApplicationExtensions
 {
 	public static void RegisterAppRoutes(this WebApplication app)
 	{
