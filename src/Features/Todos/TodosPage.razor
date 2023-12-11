@@ -4,6 +4,12 @@
 
 <h1>To Do List</h1>
 
-<a href="/todos/add" class="btn btn-primary">Add a Todo</a>
+<div class="my-3">
+    <a href="/todos/add" class="btn btn-primary">Add a Todo</a>
+</div>
 
-<TodosListComponent />
+<div hx-get="/todos/list" hx-trigger="load" id="todos-target">
+    <div class="spinner-border m-2" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>

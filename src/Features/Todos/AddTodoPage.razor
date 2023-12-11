@@ -16,14 +16,14 @@
 
 @code {
     [SupplyParameterFromForm]
-    public TodoItem TodoItem { get; set; } = new(){Summary = "Vacuum"};
-    
-    [Inject]
-	public NavigationManager Nav { get; set; } = null!;
+    public TodoItem TodoItem { get; set; } = new() { TodoId = Guid.NewGuid(), Summary = "Vacuum" };
 
-	public void CreateTodo()
-	{
-		TodosRepository.Todos.Add(TodoItem);
-		Nav.NavigateTo("/todos");
-	}
+    [Inject]
+    public NavigationManager Nav { get; set; } = null!;
+
+    public void CreateTodo()
+    {
+        TodosRepository.Todos.Add(TodoItem);
+        Nav.NavigateTo("/todos");
+    }
 }

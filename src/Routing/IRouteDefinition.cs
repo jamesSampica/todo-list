@@ -1,7 +1,7 @@
 
 namespace TodoList.Routing;
 
-public interface ICanRoute
+public interface IRouteDefinition
 {
 	void MapRoutes(WebApplication app);
 }

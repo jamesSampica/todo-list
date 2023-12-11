@@ -10,8 +10,12 @@
     {
         <tr>
             <td>
-                @* Blazor SSR doesn't like the DELETE verb here *@
-                <button class="btn btn-outline-secondary" hx-delete="/todos/list" hx-confirm="Are you sure you want to delete this todo?">Done</button>
+                <button class="btn btn-outline-secondary" 
+                        hx-delete="/todos/delete" 
+                        hx-target="#todos-target" 
+                        hx-confirm="Are you sure you want to delete this todo?"
+                        name="todoId"
+                        value="@todo.TodoId">Done</button>
             </td>
             <td>@todo.Summary</td>
         </tr>
