@@ -4,26 +4,10 @@
 
 <h1>Add a todo</h1>
 
-<EditForm method="post" Model="TodoItem" OnValidSubmit="CreateTodo" FormName="create-todo">
-    <DataAnnotationsValidator />
+<form method="post" action="/todos/add">
     <div class="mb-2">
         <label for="summary">Summary</label>
-        <InputText id="summary" @bind-Value="TodoItem.Summary" class="form-control" />
-        <ValidationMessage For="() => TodoItem.Summary" />
+        <input type="text" name="summary" id="summary" class="form-control" />
     </div>
     <button class="btn btn-primary">Save</button>
-</EditForm>
-
-@code {
-    [SupplyParameterFromForm]
-    public TodoItem TodoItem { get; set; } = new() { TodoId = Guid.NewGuid(), Summary = "Vacuum" };
-
-    [Inject]
-    public NavigationManager Nav { get; set; } = null!;
-
-    public void CreateTodo()
-    {
-        TodosRepository.Todos.Add(TodoItem);
-        Nav.NavigateTo("/todos");
-    }
-}
+</form>

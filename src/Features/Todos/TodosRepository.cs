@@ -6,7 +6,7 @@ public static class TodosRepository
                                                    new(){ TodoId = Guid.NewGuid(), Summary = "Laundry" }];
 }
 
-public class TodoItem
+public record TodoItem
 {
     public required Guid TodoId { get; set; }
     public required string Summary { get; set; }
