@@ -14,12 +14,12 @@ public partial class TodosPage : ComponentBase, IRouteDefinition
         app.MapDelete("/todos/delete", DeleteTodo);
     }
 
-    public RazorComponentResult TodosList()
+    public IResult TodosList()
     {
         return new RazorComponentResult<TodosListComponent>();
     }
 
-    public IResult DeleteTodo([FromBody] Guid todoId)
+    public IResult DeleteTodo([FromForm] Guid todoId)
     {
         TodosRepository.Todos.Remove(TodosRepository.Todos.First(t => t.TodoId == todoId));
 
