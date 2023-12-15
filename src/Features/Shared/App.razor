@@ -16,7 +16,7 @@
 <body hx-boost="true">
     <Router AppAssembly="@typeof(Program).Assembly">
         <Found Context="routeData">
-            <RouteView RouteData="@routeData" DefaultLayout="@typeof(Layout.PageLayout)" />
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(PageLayout)" />
             <FocusOnNavigate RouteData="@routeData" Selector="h1" />
         </Found>
     </Router>
