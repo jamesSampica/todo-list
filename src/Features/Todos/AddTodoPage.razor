@@ -9,6 +9,7 @@
     <div class="mb-2">
         <label for="summary">Summary</label>
         <InputText @bind-Value=_todoItem.Summary class="form-control" />
+        <ValidationMessage For="() => _todoItem.Summary" />
     </div>
     <button class="btn btn-primary">Save</button>
 </EditForm>
