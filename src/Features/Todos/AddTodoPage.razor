@@ -4,10 +4,11 @@
 
 <h1>Add a todo</h1>
 
-<form method="post" action="/todos/add">
+<EditForm method="post" Model="@_todoItem" OnValidSubmit="@AddTodo" FormName="addTodoForm">
+    <DataAnnotationsValidator />
     <div class="mb-2">
         <label for="summary">Summary</label>
-        <input type="text" name="summary" id="summary" class="form-control" />
+        <InputText @bind-Value=_todoItem.Summary class="form-control" />
     </div>
     <button class="btn btn-primary">Save</button>
-</form>
+</EditForm>

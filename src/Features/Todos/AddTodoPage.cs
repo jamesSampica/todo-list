@@ -1,20 +1,22 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
-using TodoList.Routing;
 
 namespace TodoList.Features.Todos;
 
-public partial class AddTodoPage() : ComponentBase, IRouteDefinition
+public partial class AddTodoPage : ComponentBase
 {
-    public void MapRoutes(WebApplication app)
+    [Inject]
+    public NavigationManager Nav { get; set; } = null!;
+
+    [SupplyParameterFromForm]
+    public TodoItemForm _todoItem { get; set; } = new() { Summary = "Vacuum" };
+
+    public void AddTodo()
     {
-        app.MapPost("/todos/add", AddTodo);
+        TodosRepository.Todos.Add(new() { TodoId = Guid.NewGuid(), Summary = _todoItem.Summary! });
+
+        Nav.NavigateTo("/todos");
     }
 
-    public IResult AddTodo([FromForm] TodoItem todoItem)
-    {
-        TodosRepository.Todos.Add(todoItem);
-        
-        return Results.Redirect("/todos");
-    }
+    public class TodoItemForm { [Required] public string? Summary { get; set; } }
 }
