@@ -1,4 +1,5 @@
 
+using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -14,12 +15,16 @@ public partial class TodosPage : ComponentBase, IRouteDefinition
 
         todos.MapGet("/list", TodosList);
         todos.MapDelete("/delete", DeleteTodo);
+        todos.MapGet("/delete/modal", DeleteModal);
+
     }
 
     public IResult TodosList()
     {
         return new RazorComponentResult<TodosListComponent>();
     }
+
+    public RazorComponentResult<DeleteTodoModal> DeleteModal(Guid todoId) => new(todoId);
 
     public RazorComponentResult<TodosListComponent> DeleteTodo([FromForm] Guid todoId)
     {
