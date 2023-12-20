@@ -15,7 +15,7 @@ public partial class TodosPage : ComponentBase, IRouteDefinition
 
         todos.MapGet("/list", TodosList);
         todos.MapDelete("/delete", DeleteTodo);
-        todos.MapGet("/delete/modal", DeleteModal);
+        todos.MapGet("/delete/modal/{todoId}", DeleteModal);
 
     }
 
@@ -24,7 +24,7 @@ public partial class TodosPage : ComponentBase, IRouteDefinition
         return new RazorComponentResult<TodosListComponent>();
     }
 
-    public RazorComponentResult<DeleteTodoModal> DeleteModal(Guid todoId) => new(todoId);
+    public RazorComponentResult<DeleteTodoModal> DeleteModal(Guid todoId) => new(new { todoId });
 
     public RazorComponentResult<TodosListComponent> DeleteTodo([FromForm] Guid todoId)
     {

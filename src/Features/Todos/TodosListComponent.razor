@@ -11,12 +11,10 @@
         <tr>
             <td>
                 <button class="btn btn-outline-secondary" 
-                        hx-get="/todos/delete/modal" 
+                        hx-get="/todos/delete/modal/@todo.TodoId"
                         hx-target="#delete-modal-area"
                         data-bs-toggle="modal" 
-                        data-bs-target="#modals-here"
-                        name="todoId"
-                        value="@todo.TodoId">Delete</button>
+                        data-bs-target="#modals-here">Delete</button>
             </td>
             <td>@todo.Summary</td>
         </tr>
