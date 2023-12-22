@@ -7,10 +7,13 @@
     </thead>
     @foreach (var todo in _todos)
     {
-        <tr>
+        <tr id="row-@todo.TodoId">
             <td>
-                <button class="btn btn-outline-secondary" hx-get="/todos/delete/modal/@todo.TodoId"
-                    hx-target="#delete-modal-area">Delete</button>
+                <button class="btn btn-outline-secondary"
+                        hx-swap="outerHTML"
+                        hx-confirm="delete?"
+                        hx-delete="/todos/delete/@todo.TodoId"
+                        hx-target="#row-@todo.TodoId">Delete</button>
             </td>
             <td>@todo.Summary</td>
         </tr>
