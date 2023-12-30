@@ -9,9 +9,8 @@
     {
         <tr id="row-@todo.TodoId">
             <td>
-                <button class="btn btn-outline-secondary"
-                        hx-get="/todos/delete/modal/@todo.TodoId"
-                        hx-target="#delete-modal-area" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                <button class="btn btn-outline-secondary" hx-get="/todos/delete/modal/@todo.TodoId"
+                    hx-target="#delete-modal-area" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
             </td>
             <td>@todo.Summary</td>
         </tr>
@@ -19,6 +18,12 @@
 </table>
 
 <div id="delete-modal-area">
+    <div class="modal modal-blur fade" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
 </div>
 
 
